@@ -12,6 +12,19 @@ import { createSecureTransferWebcryptoProvider } from "@absolutejs/secure-transf
 const cryptoProvider = createSecureTransferWebcryptoProvider();
 ```
 
+Protect resumable-upload receipts with a separate root key:
+
+```ts
+const receiptProtector = await createSecureTransferWebcryptoReceiptProtector({
+  key: crypto.getRandomValues(new Uint8Array(32)),
+});
+```
+
+Persist that root key in a platform keystore rather than regenerating it. It is
+imported as a non-exportable HKDF key, derives an isolated AES-256-GCM key for
+each receipt ID, and uses a fresh 96-bit nonce for every checkpoint. Do not reuse
+the transfer content key as the receipt root key.
+
 The capability contains the content key and nonce base. It is a bearer secret and
 must only appear inside an E2EE-protected transfer descriptor. This provider does
 not store or distribute capabilities.

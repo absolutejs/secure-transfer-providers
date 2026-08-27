@@ -6,7 +6,7 @@
       "name": "@absolutejs/secure-transfer-providers",
       "devDependencies": {
         "@absolutejs/manifest": "^0.9.0",
-        "@absolutejs/secure-transfer": "https://registry.npmjs.org/@absolutejs/secure-transfer/-/secure-transfer-0.0.2.tgz",
+        "@absolutejs/secure-transfer": "https://registry.npmjs.org/@absolutejs/secure-transfer/-/secure-transfer-0.1.1.tgz",
         "@sinclair/typebox": "^0.34.0",
         "@types/bun": "^1.3.14",
         "playwright": "1.60.0",
@@ -16,26 +16,26 @@
     },
     "webcrypto": {
       "name": "@absolutejs/secure-transfer-webcrypto",
-      "version": "0.0.1",
+      "version": "0.1.0",
       "dependencies": {
         "@absolutejs/manifest": "^0.9.0",
         "@sinclair/typebox": "^0.34.0",
       },
       "devDependencies": {
-        "@absolutejs/secure-transfer": "https://registry.npmjs.org/@absolutejs/secure-transfer/-/secure-transfer-0.0.2.tgz",
+        "@absolutejs/secure-transfer": "https://registry.npmjs.org/@absolutejs/secure-transfer/-/secure-transfer-0.1.1.tgz",
         "@types/bun": "^1.3.14",
         "prettier": "^3.9.0",
         "typescript": "^5.9.0",
       },
       "peerDependencies": {
-        "@absolutejs/secure-transfer": ">=0.0.1 <0.1",
+        "@absolutejs/secure-transfer": ">=0.1.1 <0.2",
       },
     },
   },
   "packages": {
     "@absolutejs/manifest": ["@absolutejs/manifest@0.9.0", "", { "peerDependencies": { "@sinclair/typebox": ">=0.34.0 <0.35.0" }, "bin": { "absolute-manifest": "dist/cli.js" } }, "sha512-naNDdwNoWQgJ3HuFbAu1UcOVR7SGpLBJz/seO8MMX32vrxk6esgzY7OB1CL8YDOegtI/EqQfcvnulnP66A9aGg=="],
 
-    "@absolutejs/secure-transfer": ["@absolutejs/secure-transfer@https://registry.npmjs.org/@absolutejs/secure-transfer/-/secure-transfer-0.0.2.tgz", { "dependencies": { "@absolutejs/manifest": "^0.9.0", "@sinclair/typebox": "^0.34.0" } }, "sha512-4HMUQ+M3YdffZiq9KfcpwQhKMm2W8WkQMAhIpafTfXt2NSQnHwHEVU7JwkP1yAGPnPJjopMtjfCnvtebrt/Qxw=="],
+    "@absolutejs/secure-transfer": ["@absolutejs/secure-transfer@https://registry.npmjs.org/@absolutejs/secure-transfer/-/secure-transfer-0.1.1.tgz", { "dependencies": { "@absolutejs/manifest": "^0.9.0", "@sinclair/typebox": "^0.34.0" } }, "sha512-tZ1Lc1dIhadK5nIAoZDHi/c9+yBi55o9p+2oBmo88KaCTOH8iJTj2ZboLaiQofW238QQWJ/C/uzLQGMJXnqLNQ=="],
 
     "@absolutejs/secure-transfer-webcrypto": ["@absolutejs/secure-transfer-webcrypto@workspace:webcrypto"],
 

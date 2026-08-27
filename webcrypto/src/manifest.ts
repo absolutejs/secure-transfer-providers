@@ -8,9 +8,10 @@ export const manifest = defineManifest<Record<string, never>>()({
     intents: [
       "encrypt secure-transfer records with browser WebCrypto",
       "authenticate large object record ordering and metadata",
+      "protect resumable upload receipts with per-receipt derived keys",
     ],
     keywords: ["AES-256-GCM", "WebCrypto", "secure transfer", "records"],
-    protocols: ["ABS-A256GCM-RECORDS-1"],
+    protocols: ["ABS-A256GCM-RECORDS-1", "HKDF-SHA256 + AES-256-GCM"],
   },
   identity: {
     accent: "#0f766e",

@@ -1,4 +1,7 @@
-import { createSecureTransferWebcryptoProvider } from "../src";
+import {
+  createSecureTransferWebcryptoProvider,
+  createSecureTransferWebcryptoReceiptProtector,
+} from "../src";
 
 const scope = globalThis as typeof globalThis & {
   __absoluteSecureTransferCertification?: Promise<{
@@ -44,6 +47,31 @@ scope.__absoluteSecureTransferCertification = (async () => {
       .then(
         () => {
           throw new Error("Browser accepted context substitution.");
+        },
+        () => undefined,
+      );
+    const protector = await createSecureTransferWebcryptoReceiptProtector({
+      key: crypto.getRandomValues(new Uint8Array(32)),
+    });
+    const receipt = new TextEncoder().encode("browser bearer receipt");
+    const protectedReceipt = await protector.protect({
+      plaintext: receipt,
+      receiptId: "browser-receipt",
+    });
+    const openedReceipt = await protector.open({
+      protectedBytes: protectedReceipt,
+      receiptId: "browser-receipt",
+    });
+    if (!openedReceipt.every((value, index) => value === receipt[index]))
+      throw new Error("Browser receipt round-trip differed.");
+    await protector
+      .open({
+        protectedBytes: protectedReceipt,
+        receiptId: "substituted-receipt",
+      })
+      .then(
+        () => {
+          throw new Error("Browser accepted receipt ID substitution.");
         },
         () => undefined,
       );
