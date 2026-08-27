@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@absolutejs/manifest": "^0.9.0",
-    "@absolutejs/secure-transfer": "https://registry.npmjs.org/@absolutejs/secure-transfer/-/secure-transfer-0.1.1.tgz",
+    "@absolutejs/secure-transfer": "https://registry.npmjs.org/@absolutejs/secure-transfer/-/secure-transfer-0.3.0.tgz",
     "@sinclair/typebox": "^0.34.0",
     "@types/bun": "^1.3.14",
     "prettier": "^3.9.0",
